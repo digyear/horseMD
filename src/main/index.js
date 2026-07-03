@@ -167,6 +167,9 @@ function sendToRenderer(channel, payload) {
 }
 
 function createWindow() {
+  const iconPath = process.platform === 'linux' && app.isPackaged
+    ? join(process.resourcesPath, 'linux-icons/hicolor/256x256/apps/horsemd.png')
+    : undefined
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 820,
@@ -174,6 +177,7 @@ function createWindow() {
     minHeight: 480,
     show: false,
     backgroundColor: '#1a1b20',
+    ...(iconPath ? { icon: iconPath } : {}),
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'hidden',
     // macOS: place the traffic lights at a fixed spot so the renderer can
     // reserve a matching gap (see `.app.is-mac` rules in app.css). y centers the
@@ -260,6 +264,7 @@ app.on('open-file', (event, path) => {
 })
 
 app.whenReady().then(() => {
+  if (process.platform === 'linux') app.setName('HorseMD')
   // Win/Linux: argv carries the launched file/folder. Merge into the launch
   // queue (macOS open-file events already pushed above). Delivered on the
   // renderer's app-ready signal (#36).
@@ -974,7 +979,8 @@ function buildMenu() {
         { label: 'Toggle Theme', accelerator: 'CmdOrCtrl+Shift+T', click: menuCmd('toggleTheme') },
         { type: 'separator' },
         { role: 'resetZoom' },
-        { role: 'zoomIn' },
+        { role: 'zoomIn', accelerator: 'CmdOrCtrl+=' },
+        { label: 'Zoom In', accelerator: 'CmdOrCtrl+Plus', click: () => { mainWindow?.webContents.setZoomFactor(Math.min(5, mainWindow.webContents.getZoomFactor() + 0.1)) }, visible: false },
         { role: 'zoomOut' },
         { type: 'separator' },
         { role: 'togglefullscreen' },
