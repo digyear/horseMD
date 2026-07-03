@@ -1,7 +1,5 @@
-/* =====================================================
    horse — Warm Retreat Theme (v2)
    Enhanced contrast, VSCode-style layout
-   ===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
 
@@ -43,9 +41,7 @@ html {
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* =====================================================
    Light Theme — Enhanced Warm Contrast
-   ===================================================== */
 body.light {
   /* Backgrounds */
   --bg: #ebe7e0;
@@ -97,9 +93,7 @@ body.light {
   --shadow-float: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
 
-/* =====================================================
    Dark Theme — Enhanced Warm Contrast
-   ===================================================== */
 body.dark {
   /* Backgrounds */
   --bg: #16130e;
@@ -146,10 +140,8 @@ body.dark {
   --shadow-float: 0 16px 48px rgba(0, 0, 0, 0.6);
 }
 
-/* =====================================================
    Morandi palettes — muted, low-saturation color schemes.
    Each carries a light/dark base class; these only override the palette vars.
-   ===================================================== */
 body.theme-morandi {
   --bg: #e7e8e2; --bg-elevated: #f3f4ef; --bg-sidebar: #dfe1d9; --bg-editor: #f6f7f2; --bg-activity: #d4d6cc;
   --text: #3a3d35; --text-strong: #23261f; --muted: #6c6f63; --faint: #97998d;
@@ -254,9 +246,7 @@ body.hm-has-custom-theme .milkdown .ProseMirror td {
   color: inherit;
 }
 
-/* =====================================================
    Base Styles
-   ===================================================== */
 body {
   font-family: var(--font-ui);
   color: var(--text);
@@ -328,9 +318,7 @@ button:focus-visible,
 .context-menu button:active { background: var(--active); opacity: 0.85; }
 .findbar button:active { background: var(--active); opacity: 0.8; }
 
-/* =====================================================
    Layout — VSCode Style
-   ===================================================== */
 .app {
   display: grid;
   grid-template-columns: var(--activity-bar-w) 1fr;
@@ -761,11 +749,9 @@ button:focus-visible,
   background: var(--accent-strong);
 }
 
-/* ============================================================
    Lightweight popovers (page width · image host)
    Minimal, roomy, with a sliding segmented control. Shared base
    = .hm-pop; each control adds its own width/anchor.
-   ============================================================ */
 .hm-pop {
   padding: 16px;
   background: var(--bg-elevated);
@@ -1199,9 +1185,7 @@ body.resizing-pane .pane-left-resizer::before {
   position: relative;
 }
 
-/* =====================================================
    Tabs
-   ===================================================== */
 .tabs {
   display: flex;
   align-items: center;
@@ -1310,9 +1294,7 @@ body.resizing-pane .pane-left-resizer::before {
   display: none; /* New tab via Ctrl+N, not button */
 }
 
-/* =====================================================
    Sidebar & Tree
-   ===================================================== */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -1508,9 +1490,7 @@ body.resizing-pane .pane-left-resizer::before {
   margin: 5px 8px;
 }
 
-/* =====================================================
    Outline Panel — Fixed scrolling
-   ===================================================== */
 .outline {
   display: flex;
   flex-direction: column;
@@ -1575,9 +1555,7 @@ body.resizing-pane .pane-left-resizer::before {
 }
 .ol-skel-line.ind { margin-left: 16px; }
 
-/* =====================================================
    Editor
-   ===================================================== */
 /* Editor area: a flex row holding the editor panes (left = active tab,
    right = split tab). Fills the center pane below the (absolute) find bar. */
 .editor-area {
@@ -1963,9 +1941,7 @@ body.hm-full-width .editor-skeleton {
   to { opacity: 0.85; }
 }
 
-/* =====================================================
    Block-type controls (selection bar / context menu / status switcher)
-   ===================================================== */
 
 /* Heading button injected into Crepe's selection toolbar (bold/italic/strike).
    Hover the "H" item to reveal a H1 / H2 / H3 / ¶ submenu. */
@@ -2372,9 +2348,7 @@ body.hm-full-width .source-editor {
   flex: 1;
 }
 
-/* =====================================================
    Status Bar
-   ===================================================== */
 .statusbar {
   grid-column: 2;
   grid-row: 3;
@@ -2510,9 +2484,7 @@ body.hm-full-width .source-editor {
   .status-right > span { display: none; }
 }
 
-/* =====================================================
    Command Palette
-   ===================================================== */
 .palette-overlay {
   position: fixed;
   inset: 0;
@@ -2599,9 +2571,7 @@ body.hm-full-width .source-editor {
   white-space: nowrap;
 }
 
-/* =====================================================
    Welcome Screen
-   ===================================================== */
 .welcome {
   flex: 1;
   display: grid;
@@ -3153,9 +3123,7 @@ kbd {
   box-shadow: 0 1px 2px rgba(0,0,0,0.08);
 }
 
-/* =====================================================
    Milkdown Theme — Enhanced rendering
-   ===================================================== */
 body.light .milkdown {
   --crepe-color-background: var(--bg-editor);
   --crepe-color-on-background: var(--text);
@@ -4012,14 +3980,12 @@ body.dark .milkdown .ProseMirror .hm-review-card-text {
   color: var(--muted);
 }
 
-/* =====================================================
    Mobile (Capacitor: iOS / Android)
    Every rule here is scoped under .app.is-mobile, so the desktop layout is
    completely untouched. On a phone there is NO permanent left rail (it would
    steal width and feel cramped next to text): the editor is edge-to-edge, and
    the activity rail + file/outline sidebar slide in together as one drawer,
    opened by the top-bar ☰ button and closed by the scrim or the rail's button.
-   ===================================================== */
 
 .app.is-mobile {
   position: relative; /* anchor the slide-in drawer + scrim overlays */

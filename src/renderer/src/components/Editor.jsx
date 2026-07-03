@@ -1347,6 +1347,8 @@ export default function Editor({
 
   // Mermaid lightbox: Ctrl+wheel zoom + drag-pan, scoped to the lightbox content.
   // Capture-phase wheel so it fires before (and blocks) any global wheel handler.
+  // Ctrl+wheel inside the lightbox scales the content element only.
+  // Runs capture-phase so it fires before (and blocks) the global wheel handler.
   useEffect(() => {
     if (!zoom) return
     const applyTransform = (el) => {
